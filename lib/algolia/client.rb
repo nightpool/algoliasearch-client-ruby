@@ -629,7 +629,7 @@ module Algolia
         client = HTTPClient.new
         client.ssl_config.ssl_version = @ssl_version if @ssl && @ssl_version
         client.transparent_gzip_decompression = @gzip
-        client.ssl_config.add_trust_ca File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'resources', 'ca-bundle.crt'))
+        client.ssl_config.set_default_paths
         {
           :index => i,
           :base_url => "http#{@ssl ? 's' : ''}://#{host}",
