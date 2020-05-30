@@ -98,7 +98,7 @@ module Algolia
 
     #
     # This method allows to query multiple indexes with one API call
-    # 
+    #
     # @param queries the array of hash representing the query and associated index name
     # @param index_name_key the name of the key used to fetch the index_name (:index_name by default)
     # @param strategy define the strategy applied on the sequential searches (none by default)
@@ -118,7 +118,7 @@ module Algolia
 
     #
     # List all existing indexes
-    # return an Answer object with answer in the form 
+    # return an Answer object with answer in the form
     #     {"items": [{ "name": "contacts", "createdAt": "2013-01-18T15:33:13.556Z"},
     #                {"name": "notes", "createdAt": "2013-01-18T15:33:13.556Z"}]}
     #
@@ -303,7 +303,7 @@ module Algolia
       put(Protocol.key_uri(key), params.to_json)
     end
 
-   
+
     # Delete an existing user key
     def delete_api_key(key)
       delete(Protocol.key_uri(key))
@@ -390,7 +390,7 @@ module Algolia
         client = HTTPClient.new
         client.ssl_config.ssl_version = @ssl_version if @ssl && @ssl_version
         client.transparent_gzip_decompression = true
-        client.ssl_config.add_trust_ca File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'resources', 'ca-bundle.crt'))
+        client.ssl_config.set_default_paths
         {
           :index => i,
           :base_url => "http#{@ssl ? 's' : ''}://#{host}",
@@ -516,7 +516,7 @@ module Algolia
 
   #
   # This method allows to query multiple indexes with one API call
-  # 
+  #
   # @param queries the array of hash representing the query and associated index name
   # @param index_name_key the name of the key used to fetch the index_name (:index_name by default)
   # @param strategy define the strategy applied on the sequential searches (none by default)
@@ -527,7 +527,7 @@ module Algolia
 
   #
   # List all existing indexes
-  # return an Answer object with answer in the form 
+  # return an Answer object with answer in the form
   #     {"items": [{ "name": "contacts", "createdAt": "2013-01-18T15:33:13.556Z"},
   #                {"name": "notes", "createdAt": "2013-01-18T15:33:13.556Z"}]}
   #
